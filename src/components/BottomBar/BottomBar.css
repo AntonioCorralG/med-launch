@@ -1,0 +1,84 @@
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--bottom-bar-height);
+  background-color: var(--color-bg-card);
+  border-top: var(--border-width) var(--border-style) var(--color-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-8);
+  z-index: 100;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.bottom-bar__left,
+.bottom-bar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* ── Shared Button Base ── */
+.btn {
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border: var(--border-width) var(--border-style) transparent;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+  white-space: nowrap;
+}
+
+/* Primary — solid blue */
+.btn--primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+/* Secondary — same blue but slightly lighter weight visually */
+.btn--secondary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Outlined — white bg with blue border */
+.btn--outlined {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn--outlined:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Support Chat */
+.btn--support {
+  background-color: var(--color-header-bg);
+  color: #ffffff;
+  border-color: var(--color-header-bg);
+  border-radius: var(--border-radius-pill);
+  padding: var(--space-2) var(--space-4);
+}
+
+.btn--support:hover {
+  opacity: 0.9;
+}
