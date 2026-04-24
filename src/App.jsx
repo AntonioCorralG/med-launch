@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import "./App.css";
 import { STEP_LABELS, STEP_TITLES } from "./constants";
 import BottomBar from "./components/BottomBar/BottomBar";
+import StepNav from "./components/StepNav/StepNav";
 
 import DnvQuoteRequest from "./steps/DnvQuoteRequest/DnvQuoteRequest";
 import FacilityDetails from "./steps/FacilityDetails/FacilityDetails";
@@ -48,7 +49,7 @@ function FormShell() {
             Step {currentStep + 1} of {STEPS.length}
           </span>
         </div>
-        {/* <StepNav /> */}
+        <StepNav />
         <div className="app__step-component">
           <StepComponent />
         </div>

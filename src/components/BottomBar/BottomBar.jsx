@@ -1,11 +1,12 @@
 import "./BottomBar.css";
 import { useFormContext } from "../../hooks/useFormContext";
+import { LAST_STEP, FIRST_STEP } from "../../constants";
 
 function BottomBar({ onSave, onContinue, onSubmit }) {
   const { currentStep, prevStep } = useFormContext();
 
-  const isFirstStep = currentStep === 0;
-  const isLastStep = currentStep === 5;
+  const isFirstStep = currentStep === FIRST_STEP;
+  const isLastStep = currentStep === LAST_STEP;
 
   const handleExit = () => {
     console.log("Exiting form...", "would clear or prompt");

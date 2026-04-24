@@ -35,10 +35,10 @@ export function useFormContext() {
 
   return {
     state,
-    dispatch,
     goToStep,
     nextStep,
     prevStep,
     currentStep: state.currentStep,
+    updateStepData,
   };
 }

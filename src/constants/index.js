@@ -132,6 +132,6 @@ export const US_STATES = [
 ];
 
 export const ACTIONS = {
-  SET_STEP: "SET_STEP",
+  SET_CURRENT_STEP: "SET_CURRENT_STEP",
   UPDATE_STEP_DATA: "UPDATE_STEP_DATA",
 };
