@@ -1,0 +1,85 @@
+:root {
+  /* ── Brand Colors ── */
+  --color-primary: #1d4ed8;          /* blue buttons (Continue, Save) */
+  --color-primary-hover: #1e40af;    /* darker blue on hover */
+  --color-primary-light: #eff6ff;    /* light blue selected card bg */
+  --color-primary-border: #93c5fd;   /* light blue selected card border */
+
+  --color-header-bg: #1a2e4a;        /* dark navy header bar */
+  --color-header-text: #ffffff;
+
+  /* ── Neutral / Grays ── */
+  --color-bg-page: #f6f6f6;          /* outer page background (Gray 8 from Figma) */
+  --color-bg-card: #ffffff;          /* white form cards */
+  --color-border: #bbbbbb;           /* input borders (Gray 5 from Figma) */
+  --color-border-light: #e5e7eb;     /* subtle dividers */
+
+  --color-text-primary: #111827;     /* main body text */
+  --color-text-secondary: #6b7280;   /* helper/subtext */
+  --color-text-label: #374151;       /* form labels */
+  --color-text-disabled: #9ca3af;    /* disabled input text */
+
+  /* ── Status Colors ── */
+  --color-error: #dc2626;            /* validation errors */
+  --color-error-bg: #fef2f2;
+  --color-warning: #d97706;          /* "Not verified" badge */
+  --color-warning-bg: #fffbeb;
+  --color-success: #16a34a;          /* "Verified" badge */
+  --color-success-bg: #f0fdf4;
+
+  /* ── Progress Bar ── */
+  --color-step-active: #1d4ed8;      /* current step fill */
+  --color-step-complete: #1d4ed8;    /* completed step fill */
+  --color-step-inactive: #d1d5db;    /* future step gray */
+
+  /* ── Typography ── */
+  --font-family-base: 'Inter', 'Segoe UI', Arial, sans-serif;
+
+  --font-size-xs: 0.75rem;     
+  --font-size-sm: 0.875rem;    
+  --font-size-base: 1rem;     
+  --font-size-lg: 1.125rem;   
+  --font-size-xl: 1.5rem;     
+  --font-size-2xl: 1.875rem;  
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.25;
+  --line-height-base: 1.5;
+
+  /* ── Spacing ── */
+  --space-1: 0.25rem;   /* 4px  */
+  --space-2: 0.5rem;    /* 8px  */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+
+  /* ── Layout ── */
+  --max-content-width: 900px;    
+  --header-height: 56px;
+  --bottom-bar-height: 72px;
+
+  /* ── Borders ── */
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 8px;
+  --border-radius-pill: 9999px;   
+
+  --border-width: 1px;
+  --border-style: solid;
+
+  /* ── Shadows ── */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-dropdown: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  /* ── Transitions ── */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+}
