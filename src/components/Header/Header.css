@@ -1,0 +1,19 @@
+.header {
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--color-header-bg);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.header__logo {
+  color: var(--color-header-text);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.01em;
+}
