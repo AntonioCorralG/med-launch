@@ -9,7 +9,6 @@
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-label);
-
 }
 
 .form-field__required {
@@ -51,4 +50,11 @@
 .form-field__error {
   font-size: var(--font-size-xs);
   color: var(--color-error);
+}
+
+.form-input:focus {
+  border-color: var(--color-primary);
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  box-shadow: none;
 }

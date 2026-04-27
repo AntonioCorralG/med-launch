@@ -41,3 +41,15 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* Global focus ring — applies to all interactive elements */
+*:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--border-radius-sm);
+}
+
+/* Remove outline for mouse users — only show for keyboard */
+*:focus:not(:focus-visible) {
+  outline: none;
+}

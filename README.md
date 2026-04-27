@@ -62,4 +62,10 @@ The app will be available at `http://localhost:5173`
 ## Known Issues / Limitations
 
 
-- None at this time.
+- Multi-date tag inputs for thrombolytic and thrombectomy dates are static placeholders
+- Service category tabs and search filter are not implemented — all services shown in flat grid
+- File upload in Site Information (Multiple Locations) is a static UI — no actual file handling
+- Email verification flow is static UI only — no email is sent
+- Edit buttons on Review & Submit accordions log to console but do not navigate back to steps
+- Download as PDF and Export to CSV are stub buttons
+- Site Information page has validation bug. Validation shows prior to the user selecting a site type.

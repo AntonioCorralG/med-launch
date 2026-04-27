@@ -45,6 +45,7 @@ function DnvQuoteRequest({ formId }) {
 
         <FormField
           label="Legal Entity Name"
+          htmlFor="legalEntityName"
           required
           error={errors.legalEntityName?.message}
         >
@@ -60,6 +61,7 @@ function DnvQuoteRequest({ formId }) {
           label="Doing Business As (d/b/a) Name"
           required
           error={errors.dbaName?.message}
+          htmlFor="dbaName"
         >
           <input
             className={`form-input ${errors.dbaName ? "form-input--error" : ""}`}
@@ -90,6 +92,7 @@ function DnvQuoteRequest({ formId }) {
             label="First Name"
             required
             error={errors.primaryContact?.firstName?.message}
+            htmlFor="primaryContact.firstName"
           >
             <input
               className={`form-input ${errors.primaryContact?.firstName ? "form-input--error" : ""}`}
@@ -103,6 +106,7 @@ function DnvQuoteRequest({ formId }) {
             label="Last Name"
             required
             error={errors.primaryContact?.lastName?.message}
+            htmlFor="primaryContact.lastName"
           >
             <input
               className={`form-input ${errors.primaryContact?.lastName ? "form-input--error" : ""}`}
@@ -118,6 +122,7 @@ function DnvQuoteRequest({ formId }) {
           label="Title"
           required
           error={errors.primaryContact?.title?.message}
+          htmlFor="primaryContact.title"
         >
           <input
             className={`form-input ${errors.primaryContact?.title ? "form-input--error" : ""}`}
@@ -132,6 +137,7 @@ function DnvQuoteRequest({ formId }) {
             label="Work Phone"
             required
             error={errors.primaryContact?.workPhone?.message}
+            htmlFor="primaryContact.workPhone"
           >
             <input
               className={`form-input ${errors.primaryContact?.workPhone ? "form-input--error" : ""}`}
@@ -145,6 +151,7 @@ function DnvQuoteRequest({ formId }) {
           <FormField
             label="Cell Phone"
             error={errors.primaryContact?.cellPhone?.message}
+            htmlFor="primaryContact.cellPhone"
           >
             <input
               className={`form-input ${errors.primaryContact?.cellPhone ? "form-input--error" : ""}`}
@@ -157,7 +164,7 @@ function DnvQuoteRequest({ formId }) {
         </div>
         <div className="form-field">
           <div className="email-label-row">
-            <label className="form-field__label">
+            <label className="form-field__label" htmlFor="primaryContact.email">
               Email <span className="form-field__required">*</span>
             </label>
             <RotateCw size={15} className="email-icon" />

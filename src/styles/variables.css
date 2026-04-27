@@ -87,4 +87,9 @@
   /* ── Transitions ── */
   --transition-fast: 150ms ease;
   --transition-base: 200ms ease;
+
+  /* ── Focus ── */
+--focus-ring-color: #f97316;      
+--focus-ring-width: 3px;
+--focus-ring-offset: 2px;
 }
