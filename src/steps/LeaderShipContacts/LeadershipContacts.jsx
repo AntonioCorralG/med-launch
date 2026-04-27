@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useFormContext } from "../../hooks/useFormContext";
 import { US_STATES } from "../../constants";
@@ -75,6 +75,12 @@ function LeadershipContacts({ formId }) {
     nextStep();
   };
 
+  useEffect(() => {
+    if (firstInputRef.current) {
+      firstInputRef.current.focus();
+    }
+  }, []);
+
   return (
     <form id={formId} onSubmit={handleSubmit(onValid)} noValidate>
       <FormCard>
@@ -85,6 +91,7 @@ function LeadershipContacts({ formId }) {
 
           <label className="checkbox-label">
             <input
+              ref={firstInputRef}
               type="checkbox"
               className="checkbox-input"
               {...register("ceo.sameAsPrimary")}
@@ -220,7 +227,6 @@ function LeadershipContacts({ formId }) {
             />
           </FormField>
         </div>
-
 
         <div className="contact-sub-card">
           <h3 className="contact-sub-card__title">Invoicing Contact</h3>

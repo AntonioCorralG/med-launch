@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { RotateCw } from "lucide-react";
 import { useFormContext } from "../../hooks/useFormContext";
@@ -36,6 +36,14 @@ function DnvQuoteRequest({ formId }) {
     nextStep();
   };
 
+  const firstInputRef = useRef(null);
+
+  useEffect(() => {
+    if (firstInputRef.current) {
+      firstInputRef.current.focus();
+    }
+  }, []);
+
   return (
     <form id={formId} onSubmit={handleSubmit(onValid)} noValidate>
       <FormCard>
@@ -50,6 +58,7 @@ function DnvQuoteRequest({ formId }) {
           error={errors.legalEntityName?.message}
         >
           <input
+            ref={firstInputRef}
             className={`form-input ${errors.legalEntityName ? "form-input--error" : ""}`}
             type="text"
             {...register("legalEntityName", {
