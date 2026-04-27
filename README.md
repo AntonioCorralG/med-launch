@@ -55,6 +55,7 @@ The app will be available at `http://localhost:5173`
 - The 'Download CSV Template' in the file upload screen is a non-functioning placeholder
 - The "Download as PDF" and "Export to CSV" on the Review screen do not generate real files.
 - The conditional Facility Type options on Step 2 are treated as two distinct states based on the Figma variants shown.
+- Figma shows two variants for the Facility Type radio list (step 2). No trigger condition is provided or annotates, a single list is used matching the primary view.
 
 ---
 
