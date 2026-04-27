@@ -1,21 +1,22 @@
-import "./BottomBar.css";
-import { useFormContext } from "../../hooks/useFormContext";
-import { LAST_STEP, FIRST_STEP } from "../../constants";
+import './BottomBar.css';
+import { useFormContext } from '../../hooks/useFormContext';
+import { LAST_STEP } from '../../constants';
 
-function BottomBar({ onSave, onContinue, onSubmit }) {
+function BottomBar({ formId, onSave, onSubmit }) {
   const { currentStep, prevStep } = useFormContext();
 
-  const isFirstStep = currentStep === FIRST_STEP;
-  const isLastStep = currentStep === LAST_STEP;
+  const isFirstStep = currentStep === 0;
+  const isLastStep  = currentStep === LAST_STEP;
 
   const handleExit = () => {
-    console.log("Exiting form...", "would clear or prompt");
+    console.log('Exit clicked');
   };
 
   return (
     <div className="bottom-bar">
+
       <div className="bottom-bar__left">
-        {isFirstStep ? (  
+        {isFirstStep ? (
           <button
             type="button"
             className="btn btn--outlined"
@@ -29,10 +30,11 @@ function BottomBar({ onSave, onContinue, onSubmit }) {
             className="btn btn--outlined"
             onClick={prevStep}
           >
-            Back
+            Previous
           </button>
         )}
       </div>
+
       <div className="bottom-bar__right">
         {!isLastStep && (
           <>
@@ -44,23 +46,30 @@ function BottomBar({ onSave, onContinue, onSubmit }) {
               Save
             </button>
             <button
-              type="button"
+              type="submit"
+              form={formId}
               className="btn btn--primary"
-              onClick={onContinue}
             >
               Continue
             </button>
           </>
         )}
+
         {isLastStep && (
-          <button type="button" className="btn btn--primary" onClick={onSubmit}>
-            Submit
+          <button
+            type="button"
+            className="btn btn--primary"
+            onClick={onSubmit}
+          >
+            Submit Application
           </button>
         )}
+
         <button type="button" className="btn btn--support">
-          Support Chat
+          💬 Support Chat
         </button>
       </div>
+
     </div>
   );
 }

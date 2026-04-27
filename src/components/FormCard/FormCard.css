@@ -1,0 +1,23 @@
+.form-card {
+  background-color: var(--color-bg-card);
+  border: var(--border-width) var(--border-style) var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-card);
+  margin-bottom: var(--space-6);
+}
+
+/* Section headings inside a card (e.g. "Identify Healthcare Organization") */
+.form-card__section-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+}
+
+/* Optional helper text beneath a section title */
+.form-card__section-subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}

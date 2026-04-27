@@ -26,14 +26,12 @@ function FormShell() {
   const { currentStep, nextStep, prevStep } = useFormContext();
 
   const StepComponent = STEPS[currentStep];
+  const formId = `step-${currentStep}-form`;
 
   const handleSave = () => {
     console.log("Form Data Saved!");
   };
 
-  const handleContinue = () => {
-    nextStep();
-  };
 
   const handleSubmit = () => {
     console.log("Form Submitted!");
@@ -51,12 +49,13 @@ function FormShell() {
         </div>
         <StepNav />
         <div className="app__step-component">
-          <StepComponent />
+          <StepComponent formId={formId} />
         </div>
       </main>
       <BottomBar
+        formId={formId}
         onSave={handleSave}
-        onContinue={handleContinue}
+        // onContinue={handleContinue}
         onSubmit={handleSubmit}
       />
     </div>

@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
 import { ACTIONS } from '../constants';
-const initialState = {
+export const initialState = {
   currentStep: 0,
   dnvQuoteRequest: {
     legalEntityName: "",
@@ -61,7 +61,7 @@ siteInformation: {
   },
 };
 
-function formReducer(state, action) {
+export function formReducer(state, action) {
   switch (action.type) {
     // hndle action types to update state
     case ACTIONS.SET_CURRENT_STEP:

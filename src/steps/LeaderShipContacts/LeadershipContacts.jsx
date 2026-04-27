@@ -1,4 +1,4 @@
-function LeadershipContacts() {
+function LeadershipContacts  ({ formId }) {
   return <div>Step 3 — Leadership Contacts (coming soon)</div>;
 }
 

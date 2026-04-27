@@ -19,7 +19,7 @@
 
   --color-text-primary: #111827; /* main body text */
   --color-text-secondary: #6b7280; /* helper/subtext */
-  --color-text-label: #374151; /* form labels */
+  --color-text-label: #343434; /* form labels */
   --color-text-disabled: #9ca3af; /* disabled input text */
 
   /* ── Status Colors ── */
@@ -37,7 +37,7 @@
 
   /* ── Typography ── */
   --font-family-base: "Inter", "Segoe UI", Arial, sans-serif;
-  --font-family-header-secondary: "Nunito Sans", "Inter", Arial;
+  --font-family-header-secondary: "Nunito Sans",ƒ "Inter", Arial;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;

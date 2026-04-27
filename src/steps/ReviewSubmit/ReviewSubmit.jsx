@@ -1,4 +1,4 @@
-function ReviewSubmit() {
+function ReviewSubmit({ formId }) {
   return <div>Step 6 — Review & Submit (coming soon)</div>;
 }
 
