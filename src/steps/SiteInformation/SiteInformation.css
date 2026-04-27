@@ -1,0 +1,221 @@
+/* ── Location selection cards ── */
+.location-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+@media (max-width: 600px) {
+  .location-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.location-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-bg-card);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast);
+  width: 100%;
+}
+
+.location-card:hover {
+  border-color: var(--color-primary);
+}
+
+/* Selected state — matches the light blue in the Figma */
+.location-card--selected {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.location-card__title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.location-card__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ── Upload section ── */
+.upload-section {
+  margin-top: var(--space-4);
+}
+
+/* Upload method card — pre-selected, styled with blue border */
+.upload-method-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-5);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-primary-light);
+  margin-bottom: var(--space-4);
+}
+
+.upload-method-card__title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.upload-method-card__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ── Drop zone ── */
+.dropzone {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-10) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  background-color: var(--color-bg-page);
+  transition: border-color var(--transition-fast),
+              background-color var(--transition-fast);
+  margin-bottom: var(--space-4);
+}
+
+/* Active state while dragging a file over */
+.dropzone--active {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.dropzone__icon {
+  color: var(--color-text-secondary);
+}
+
+.dropzone__title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.dropzone__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+/* Hide the real file input — we use the label as the click target */
+.dropzone__input {
+  display: none;
+}
+
+.dropzone__template-link {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.dropzone__template-link:hover {
+  color: var(--color-primary-hover);
+}
+
+/* ── Uploaded files list ── */
+.uploaded-files {
+  border: var(--border-width) var(--border-style) var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+
+.uploaded-files__heading {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-width) var(--border-style) var(--color-border-light);
+}
+
+.uploaded-file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-width) var(--border-style) var(--color-border-light);
+  background-color: var(--color-bg-card);
+}
+
+.uploaded-file:last-child {
+  border-bottom: none;
+}
+
+.uploaded-file__info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  overflow: hidden;
+}
+
+.uploaded-file__icon {
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.uploaded-file__name {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.uploaded-file__preview {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.uploaded-file__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+  margin-left: var(--space-4);
+}
+
+.uploaded-file__size {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.uploaded-file__remove {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  padding: var(--space-1);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  transition: color var(--transition-fast);
+}
+
+.uploaded-file__remove:hover {
+  color: var(--color-error);
+}

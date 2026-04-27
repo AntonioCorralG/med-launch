@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
 import { ACTIONS } from '../constants';
 export const initialState = {
-  currentStep: 0,
+  currentStep: 3,
   dnvQuoteRequest: {
     legalEntityName: "",
     dbaName: "",
