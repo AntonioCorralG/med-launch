@@ -6,43 +6,39 @@ function StepNav() {
   const { currentStep, goToStep } = useFormContext();
 
   return (
-    <nav className="step-nav" aria-label="Form Progress">
+    <nav className="step-nav" aria-label="Form progress">
       <div className="step-nav__bar">
         {STEP_LABELS.map((label, index) => {
           const isComplete = index < currentStep;
-          const isActive = index === currentStep;
+          const isActive   = index === currentStep;
+
           return (
             <div
               key={label}
               className={[
-                "step-nav__step",
+                "step-nav__segment",
                 isComplete ? "step-nav__segment--complete" : "",
-                isActive ? "step-nav__segment--active" : "",
+                isActive   ? "step-nav__segment--active"   : "",
               ].join(" ")}
-            />
-          );
-        })}
-      </div>
-      <div className="step-nav__labels">
-        {STEP_LABELS.map((label, index) => {
-          const isActive = index === currentStep;
-          const isComplete = index < currentStep;
-          return (
-            <span
-              key={label}
-              className={[
-                'step-nav__label',
-                isActive ? "step-nav__label--active" : "",
-                isComplete ? "step-nav__label--complete" : "",
-              ].join(" ")}
-
+              onClick={() => isComplete && goToStep(index)}
+              role={isComplete ? "button" : undefined}
+              tabIndex={isComplete ? 0 : undefined}
             >
-              {label}
-            </span>
+              <span
+                className={[
+                  "step-nav__label",
+                  isActive   ? "step-nav__label--active"   : "",
+                  isComplete ? "step-nav__label--complete" : "",
+                ].join(" ")}
+              >
+                {label}
+              </span>
+            </div>
           );
         })}
       </div>
     </nav>
   );
 }
+
 export default StepNav;

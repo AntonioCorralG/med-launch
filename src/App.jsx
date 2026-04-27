@@ -33,9 +33,9 @@ function FormShell() {
   };
 
 
-  const handleSubmit = () => {
-    console.log("Form Submitted!");
-  };
+const handleFinalSubmit = () => {
+  console.log('Form submitted — full payload:', state);
+};
 
   return (
     <div className="app">
@@ -55,8 +55,7 @@ function FormShell() {
       <BottomBar
         formId={formId}
         onSave={handleSave}
-        // onContinue={handleContinue}
-        onSubmit={handleSubmit}
+        onSubmit={handleFinalSubmit}
       />
     </div>
   );

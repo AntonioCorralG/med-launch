@@ -27,7 +27,6 @@ function LeadershipContacts({ formId }) {
   const doqSameAsPrimary = watch("directorOfQuality.sameAsPrimary");
   const invoiceSameAsPrimary = watch("invoicingContact.sameAsPrimary");
 
-  // ── CEO auto-fill ──────────────────────────────────────────
   useEffect(() => {
     if (ceoSameAsPrimary) {
       setValue("ceo.firstName", primaryContact.firstName);
@@ -42,7 +41,6 @@ function LeadershipContacts({ formId }) {
     }
   }, [ceoSameAsPrimary, primaryContact, setValue]);
 
-  // ── Director of Quality auto-fill ─────────────────────────
   useEffect(() => {
     if (doqSameAsPrimary) {
       setValue("directorOfQuality.firstName", primaryContact.firstName);

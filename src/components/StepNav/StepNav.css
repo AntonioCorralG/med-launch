@@ -2,43 +2,48 @@
   width: 100%;
   max-width: var(--max-content-width);
   margin: 0 auto;
-  padding: var(--space-4) 0 var(--space-2);
+  margin-bottom: var(--space-6);   
 }
 
-/* ── Bar Segments ── */
 .step-nav__bar {
   display: flex;
-  gap: 4px;
+  gap: 6px;                    
   width: 100%;
 }
 
+/* ── Each segment is the colored bar + label stacked ── */
 .step-nav__segment {
   flex: 1;
-  height: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);             
+}
+
+/* The colored line — using ::before so the div itself handles layout */
+.step-nav__segment::before {
+  content: '';
+  display: block;
+  height: 5px;
   border-radius: var(--border-radius-pill);
   background-color: var(--color-step-inactive);
   transition: background-color var(--transition-base);
 }
 
-.step-nav__segment--active,
-.step-nav__segment--complete {
+.step-nav__segment--active::before,
+.step-nav__segment--complete::before {
   background-color: var(--color-step-active);
 }
 
-/* ── Labels ── */
-.step-nav__labels {
-  display: flex;
-  width: 100%;
-  margin-top: var(--space-2);
+.step-nav__segment--complete {
+  cursor: pointer;
 }
 
+/* ── Labels ── */
 .step-nav__label {
-  flex: 1;
   font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
   text-align: center;
   line-height: var(--line-height-tight);
-  /* Prevent layout shift when font-weight changes */
   transition: color var(--transition-fast);
 }
 
@@ -49,7 +54,6 @@
 
 .step-nav__label--complete {
   color: var(--color-primary);
-  cursor: pointer;
 }
 
 .step-nav__label--complete:hover {

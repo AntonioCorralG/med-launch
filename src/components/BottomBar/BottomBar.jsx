@@ -51,7 +51,7 @@ function BottomBar({ formId, onSave, onSubmit }) {
         )}
 
         {isLastStep && (
-          <button type="button" className="btn btn--primary" onClick={onSubmit}>
+          <button form={formId} type="submit" className="btn btn--primary" >
             Submit Application
           </button>
         )}
