@@ -1,11 +1,10 @@
-/* Two-column row layout for side-by-side fields */
+/* ── Two-column layout for side-by-side fields ── */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-4);
 }
 
-/* Stack to single column on small screens */
 @media (max-width: 600px) {
   .form-row {
     grid-template-columns: 1fr;
@@ -32,35 +31,83 @@
   flex-shrink: 0;
 }
 
-/* ── Email input wrapper ── */
-/* Positioned so we can add icons inside later if needed */
-.email-input-wrapper {
-  position: relative;
+
+.email-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-1);
+}
+.icon-btn {
+  background: none;
+  border: none;
+  padding: var(--space-1);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: var(--border-radius-sm);
+  transition: color var(--transition-fast);
 }
 
-/* ── Email verification row ── */
+.icon-btn:hover {
+  color: var(--color-primary);
+}
+
+/* ── Email verification action row ── */
 .email-verification-row {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  margin-top: calc(-1 * var(--space-2));
-  margin-bottom: var(--space-2);
+  margin-top: var(--space-3);
 }
 
-/* Smaller button variant */
+.email-verification-row .badge {
+  margin-left: auto;
+}
+
+/* ── Smaller button variant ── */
 .btn--sm {
   padding: var(--space-1) var(--space-3);
   font-size: var(--font-size-xs);
+  min-width: 160px;   /* prevents layout shift when text → spinner */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+}
+
+.btn--loading {
+  opacity: 0.8;
+}
+
+/* ── "Sent." success text ── */
+.verification-sent-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-success);
+  font-weight: var(--font-weight-medium);
+  animation: fadeIn 200ms ease;
+}
+
+/* ── Spinner animation for Loader2 icon ── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.spin {
+  animation: spin 700ms linear infinite;
 }
 
 /* ── Badges ── */
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: var(--space-1) var(--space-2);
+  padding: var(--space-1) var(--space-3);
   border-radius: var(--border-radius-pill);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
+  white-space: nowrap;
 }
 
 .badge--warning {
@@ -73,4 +120,9 @@
   background-color: var(--color-success-bg);
   color: var(--color-success);
   border: 1px solid var(--color-success);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }

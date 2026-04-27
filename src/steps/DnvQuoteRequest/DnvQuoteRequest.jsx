@@ -1,6 +1,7 @@
 import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { RotateCw } from "lucide-react";
 import { useFormContext } from "../../hooks/useFormContext";
-import { Form, useForm } from "react-hook-form";
 import { isValidEmail } from "../../utils/helpers";
 import FormCard from "../../components/FormCard/FormCard";
 import FormField from "../../components/FormField/FormField";
@@ -15,7 +16,9 @@ function DnvQuoteRequest({ formId }) {
     watch,
     setValue,
     formState: { errors },
-  } = useForm({ defaultValues: state.DnvQuoteRequest });
+  } = useForm({
+    defaultValues: state.dnvQuoteRequest,
+  });
 
   const dbaIsSameAsLegal = watch("dbaIsSameAsLegal");
   const legalEntityName = watch("legalEntityName");
@@ -29,28 +32,25 @@ function DnvQuoteRequest({ formId }) {
   }, [dbaIsSameAsLegal, legalEntityName, setValue]);
 
   const onValid = (data) => {
-    updateStepData("DnvQuoteRequest", data);
+    updateStepData("dnvQuoteRequest", data);
     nextStep();
   };
 
-  const onInvalid = (data) => {
-    console.log("Validation Errors:", data);
-  };
-
   return (
-    <form id={formId} onSubmit={handleSubmit(onValid, onInvalid)} noValidate>
+    <form id={formId} onSubmit={handleSubmit(onValid)} noValidate>
       <FormCard>
-        <h2 classname="form-card__title">Identify Healthcare Organization</h2>
+        <h2 className="form-card__section-title">
+          Identify Healthcare Organization
+        </h2>
+
         <FormField
           label="Legal Entity Name"
           required
           error={errors.legalEntityName?.message}
         >
           <input
+            className={`form-input ${errors.legalEntityName ? "form-input--error" : ""}`}
             type="text"
-            className={
-              'form-input ${errors.legalEntityName ? "form-input--error" : ""}'
-            }
             {...register("legalEntityName", {
               required: "Legal Entity Name is required",
             })}
@@ -62,14 +62,11 @@ function DnvQuoteRequest({ formId }) {
           error={errors.dbaName?.message}
         >
           <input
-            className={
-              'form-input ${errors.dbaName ? "form-input--error" : ""}'
-            }
+            className={`form-input ${errors.dbaName ? "form-input--error" : ""}`}
+            type="text"
             disabled={dbaIsSameAsLegal}
             {...register("dbaName", {
-              required: dbaIsSameAsLegal
-                ? false
-                : "Doing Business As (d/b/a) Name is required",
+              required: dbaIsSameAsLegal ? false : "DBA Name is required",
             })}
           />
         </FormField>
@@ -81,11 +78,13 @@ function DnvQuoteRequest({ formId }) {
           />
           <span>Same as Legal Entity Name</span>
         </label>
-
-        <h2 classname="form-card__title">Primary Contact Information</h2>
+        <h2 className="form-card__section-title">
+          Primary Contact Information
+        </h2>
         <p className="form-card__section-subtitle">
           Primary contact receives all DNV Healthcare official communications
         </p>
+
         <div className="form-row">
           <FormField
             label="First Name"
@@ -93,9 +92,7 @@ function DnvQuoteRequest({ formId }) {
             error={errors.primaryContact?.firstName?.message}
           >
             <input
-              className={
-                'form-input ${errors.primaryContact?.firstName ? "form-input--error" : ""}'
-              }
+              className={`form-input ${errors.primaryContact?.firstName ? "form-input--error" : ""}`}
               type="text"
               {...register("primaryContact.firstName", {
                 required: "First Name is required",
@@ -108,9 +105,7 @@ function DnvQuoteRequest({ formId }) {
             error={errors.primaryContact?.lastName?.message}
           >
             <input
-              className={
-                'form-input ${errors.primaryContact?.lastName ? "form-input--error" : ""}'
-              }
+              className={`form-input ${errors.primaryContact?.lastName ? "form-input--error" : ""}`}
               type="text"
               {...register("primaryContact.lastName", {
                 required: "Last Name is required",
@@ -125,9 +120,7 @@ function DnvQuoteRequest({ formId }) {
           error={errors.primaryContact?.title?.message}
         >
           <input
-            className={
-              'form-input ${errors.primaryContact?.title ? "form-input--error" : ""}'
-            }
+            className={`form-input ${errors.primaryContact?.title ? "form-input--error" : ""}`}
             type="text"
             {...register("primaryContact.title", {
               required: "Title is required",
@@ -141,16 +134,11 @@ function DnvQuoteRequest({ formId }) {
             error={errors.primaryContact?.workPhone?.message}
           >
             <input
-              className={
-                'form-input ${errors.primaryContact?.workPhone ? "form-input--error" : ""}'
-              }
+              className={`form-input ${errors.primaryContact?.workPhone ? "form-input--error" : ""}`}
               type="tel"
               {...register("primaryContact.workPhone", {
                 required: "Work Phone is required",
-                minLength: {
-                  value: 10,
-                  message: "Enter a valid phone number",
-                },
+                minLength: { value: 10, message: "Enter a valid phone number" },
               })}
             />
           </FormField>
@@ -159,34 +147,43 @@ function DnvQuoteRequest({ formId }) {
             error={errors.primaryContact?.cellPhone?.message}
           >
             <input
-              className={
-                'form-input ${errors.primaryContact?.cellPhone ? "form-input--error" : ""}'
-              }
+              className={`form-input ${errors.primaryContact?.cellPhone ? "form-input--error" : ""}`}
               type="tel"
               {...register("primaryContact.cellPhone", {
-                minLength: {
-                  value: 10,
-                  message: "Enter a valid phone number",
-                },
+                minLength: { value: 10, message: "Enter a valid phone number" },
               })}
             />
           </FormField>
-
-          <FormField
-            label="Email"
-            required
-            error={errors.primaryContact?.email?.message}
-          >
-            <div>
-              <input className={`form-input ${errors.primaryContact?.email ? 'form-input--error' : ''}`} />
-            </div>
-          </FormField>
-          <div className="email-verification-row">
-            <button type="button" className="btn btn--outlined btn--sm">
-             Send Verification Email
-            </button>
-            <span className="badge badge--warning">Not Verifified</span>
+        </div>
+        <div className="form-field">
+          <div className="email-label-row">
+            <label className="form-field__label">
+              Email <span className="form-field__required">*</span>
+            </label>
+            <RotateCw size={15} className="email-icon" />
           </div>
+          <input
+            className={`form-input ${errors.primaryContact?.email ? "form-input--error" : ""}`}
+            type="email"
+            {...register("primaryContact.email", {
+              required: "Email is required",
+              validate: (value) =>
+                isValidEmail(value) || "Enter a valid email address",
+            })}
+          />
+
+          {errors.primaryContact?.email && (
+            <span className="form-field__error" role="alert">
+              {errors.primaryContact.email.message}
+            </span>
+          )}
+        </div>
+
+        <div className="email-verification-row">
+          <button type="button" className="btn btn--outlined btn--sm">
+            Send Verification Email
+          </button>
+          <span className="badge badge--warning">Not Verified</span>
         </div>
       </FormCard>
     </form>

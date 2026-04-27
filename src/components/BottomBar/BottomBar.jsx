@@ -1,20 +1,19 @@
-import './BottomBar.css';
-import { useFormContext } from '../../hooks/useFormContext';
-import { LAST_STEP } from '../../constants';
-
+import "./BottomBar.css";
+import { useFormContext } from "../../hooks/useFormContext";
+import { LAST_STEP } from "../../constants";
+import { UserPen } from "lucide-react";
 function BottomBar({ formId, onSave, onSubmit }) {
   const { currentStep, prevStep } = useFormContext();
 
   const isFirstStep = currentStep === 0;
-  const isLastStep  = currentStep === LAST_STEP;
+  const isLastStep = currentStep === LAST_STEP;
 
   const handleExit = () => {
-    console.log('Exit clicked');
+    console.log("Exit clicked");
   };
 
   return (
     <div className="bottom-bar">
-
       <div className="bottom-bar__left">
         {isFirstStep ? (
           <button
@@ -45,31 +44,23 @@ function BottomBar({ formId, onSave, onSubmit }) {
             >
               Save
             </button>
-            <button
-              type="submit"
-              form={formId}
-              className="btn btn--primary"
-            >
+            <button type="submit" form={formId} className="btn btn--primary">
               Continue
             </button>
           </>
         )}
 
         {isLastStep && (
-          <button
-            type="button"
-            className="btn btn--primary"
-            onClick={onSubmit}
-          >
+          <button type="button" className="btn btn--primary" onClick={onSubmit}>
             Submit Application
           </button>
         )}
 
         <button type="button" className="btn btn--support">
-          💬 Support Chat
+          <UserPen size={16} />
+          Support Chat
         </button>
       </div>
-
     </div>
   );
 }
